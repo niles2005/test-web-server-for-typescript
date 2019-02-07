@@ -4,19 +4,23 @@ a simple webserver(base on node),used for typescript develop（web4ts）
 when I work on web project,In web page, I can set the script's type to "module",
 and i can debug the js file(es2015) without map file.
 
-    <script src="./dest/index.js" type="module"></script>
+     <script src="./dest/index.js" type="module"></script>
 
 In the index.js,import other file like below:
 
-import { MyFile } from "./myFile.js";
+```
+     import { MyFile } from "./myFile.js";
+```
 
-but,when i tsc with target("es2015"),i just like this: 
+but,when i tsc with target("es2015"),it's just like this: 
 
-import { MyFile } from "./myFile";
+```
+     import { MyFile } from "./myFile";
+```
 
-I want the tsc to add .js in the import part,but i havan't found the configure in tsconfig.json.
+I want the tsc to add .js in the import part default,but i havan't found the configure in tsconfig.json.
 
-so i build this module to add the ".js" part when browser access file from web server.
+so i build this project to add the ".js" part when browser access file from web server.
 
 
 # Installing globally:
