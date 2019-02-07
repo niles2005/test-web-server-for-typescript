@@ -1,6 +1,6 @@
 {
   "name": "web4ts",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "a simple web server for code develop of typescript",
   "main": "index.js",
   "bin": {
@@ -14,7 +14,7 @@
     "web4ts"
   ],
   "author": "nielei",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/niles2005/test-web-server-for-typescript/issues"
   },
