@@ -7,14 +7,22 @@ const path = require("path");
 const mime = require("mime");
 
 let argv = process.argv.slice(2);
-let webPath = process.cwd();
+//default root is "."
+let root = ".";
 if(argv.length > 0) {
-		webPath += "/" + argv[0];
+	root = argv[0];
+} else {
+	if(fs.existsSync("public")) {
+		root = "public";
+	}
 }
+
+let webPath = process.cwd() + "/" + root;
+
 const server = http.createServer((req, res) => {
   let pathname = url.parse(req.url).pathname;
   if (pathname.startsWith("/dest")) {
-    //对于tsc编译的es6的js，import引用补上".js"后缀
+    //for the js compiled by tsc(es2015+)锛宨mport module + ".js"
     let fileName = pathname.split("/").pop();
     if (fileName && fileName.indexOf(".") === -1) {
       pathname += ".js";
@@ -23,13 +31,14 @@ const server = http.createServer((req, res) => {
     pathname += "index.html";
   }
   let file = webPath + pathname;
-  console.log(file);
   fs.readFile(file, function(err, data) {
     if (err) {
+      console.log("x:" + file);
       res.writeHead(404, { "content-type": "text/plain" });
       res.write("file is not exist!");
       res.end();
     } else {
+      console.log("v:" + file);
       let thePath = path.parse(file);
       let mimeType = mime.getType(thePath.ext);
       res.writeHead(200, { "content-type": mimeType });
@@ -40,5 +49,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(8000, function() {
-  console.log("server startup at 8000...");
+  console.log("server startup at " + root + " on port 8000...");
 });
