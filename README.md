@@ -23,7 +23,7 @@ I want the tsc to add .js in the import part default,but i havan't found the con
 so i build this project to add the ".js" part when browser access file from web server.
 
 
-# Installing globally:
+# Installing:
 
 Installation via `npm`:
 
@@ -34,6 +34,11 @@ This will install `web4ts` globally so that it may be run from the command line.
 ## Usage:
 
      web4ts [path] [-p port]
+
+     if install web4ts locality(without -g),use below command to run:
+
+     npx web4ts [path] [-p port] 
+
 
 `[path]` defaults to `./public` if the folder exists, and `./` otherwise.
 `[-p port]` default port is 8000.
