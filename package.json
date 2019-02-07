@@ -1,0 +1,25 @@
+{
+  "name": "web4ts",
+  "version": "0.0.1",
+  "description": "a simple web server for code develop of typescript",
+  "main": "index.js",
+  "bin": {
+    "web4ts": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niles2005/test-web-server-for-typescript.git"
+  },
+  "keywords": [
+	"web4ts"
+  ],
+  "author": "nielei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niles2005/test-web-server-for-typescript/issues"
+  },
+  "homepage": "https://github.com/niles2005/test-web-server-for-typescript#readme",
+  "dependencies": {
+    "mime": "^2.4.0"
+  }
+}
