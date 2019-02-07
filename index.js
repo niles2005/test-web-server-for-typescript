@@ -21,14 +21,14 @@ let webPath = process.cwd() + "/" + root;
 
 const server = http.createServer((req, res) => {
   let pathname = url.parse(req.url).pathname;
-  if (pathname.startsWith("/dest")) {
+  if (pathname === "/") {
+    pathname += "index.html";
+  } else {
     //for the js compiled by tsc(es2015+)，import module + ".js"
     let fileName = pathname.split("/").pop();
     if (fileName && fileName.indexOf(".") === -1) {
       pathname += ".js";
     }
-  } else if (pathname === "/") {
-    pathname += "index.html";
   }
   let file = webPath + pathname;
   fs.readFile(file, function(err, data) {
@@ -49,5 +49,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(8000, function() {
-  console.log("server startup at " + root + " on port 8000...");
+  console.log(`server startup at '${root}' on port 8000...`);
 });
