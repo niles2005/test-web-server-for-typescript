@@ -1,6 +1,6 @@
 {
   "name": "web4ts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a simple web server for code develop of typescript",
   "main": "index.js",
   "bin": {
