@@ -9,8 +9,12 @@ const mime = require("mime");
 let argv = process.argv.slice(2);
 //default root is "."
 let root = ".";
+let port = 8000;
 if(argv.length > 0) {
-	root = argv[0];
+  root = argv[0];
+  if(argv.length >= 3 && argv[1] === '-p') {
+    port = parseInt(argv[2]);
+  }
 } else {
 	if(fs.existsSync("public")) {
 		root = "public";
@@ -48,6 +52,6 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(8000, function() {
-  console.log(`server startup at '${root}' on port 8000...`);
+server.listen(port, function() {
+  console.log(`server startup at '${root}' on port ${port} ...`);
 });

@@ -33,8 +33,9 @@ This will install `web4ts` globally so that it may be run from the command line.
 
 ## Usage:
 
-     web4ts [path] 
+     web4ts [path] [-p port]
 
 `[path]` defaults to `./public` if the folder exists, and `./` otherwise.
+`[-p port]` default port is 8000.
 
 *Now you can visit http://localhost:8000 to view your server*
